@@ -6,6 +6,7 @@ MODULE=levdict
 
 define HELP
 Available commands are:\n
+\ttest\t\tTests the source files with 'unittest' module\n
 \tbuild\t\tBuilds a new version (remember to update version in toml)\n
 \tupload\t\tUploads the new version to PiPy\n
 \ttest_upload\tUploads the new version to Test PiPy\n
@@ -39,6 +40,9 @@ install:
 
 dev_install:
 	python -m pip install --editable .
+
+test:
+	python -m unittest
 
 help:
 	@echo $$HELP
