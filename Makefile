@@ -18,12 +18,23 @@ export HELP
 SOURCES = $(wildcard ./src/$(MODULE)/*.py)
 DISTROS = $(wildcard ./dist/*)
 
+.PHONY: update
+.PHONY: build
+.PHONY: test_upload
+.PHONY: test_install
+.PHONY: upload
+.PHONY: install
+.PHONY: dev_install
+.PHONY: help
+.PHONY: test
+
 update:
 	python -m pip install --upgrade pip
 	python -m pip install --upgrade build
 	python -m pip install --upgrade twine
 
 build:
+	rm -f dist/*
 	python -m build
 
 test_upload:

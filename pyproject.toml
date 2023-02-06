@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "levdict"
-version = "1.1.0"
+version = "1.2.0"
 description = "Allows to manage dictionaries and config files as class attributes"
 readme = "README.md"
 requires-python = ">=3.8"
