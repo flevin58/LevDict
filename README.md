@@ -5,7 +5,7 @@ and three derived classes that allow using respectively toml, json and yaml for 
 
 ## Project Status
 
-The module is currently in beta test by myself.
+The module is currently in alfa release.
 It is published in PyPi test repository.
 
 ## Installation
