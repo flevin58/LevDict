@@ -203,14 +203,6 @@ class LevDict(dict):
 
         return _normalize_dict(self)
 
-        # ret_dict = {}
-        # for key, val in self.items():
-        #     if isinstance(val, LevDict):
-        #         ret_dict[key] = val.as_dict()
-        #     else:
-        #         ret_dict[key] = val
-        # return ret_dict
-
     def __getattr__(self, __attr: str) -> Any:
         """Implements the dot notation to retrieve an item"""
         if __attr in self:

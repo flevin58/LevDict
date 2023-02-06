@@ -32,7 +32,6 @@ class TestLevDict(unittest.TestCase):
         self.tdict.load(self.tfile)
 
         ddd: dict = self.tdict.user.as_dict()
-        print(f"********* {ddd}")
 
         newd = LevDictToml()
         newd.from_dict({"user": ddd})
