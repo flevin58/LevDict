@@ -191,7 +191,6 @@ class LevDict(dict):
             raise ValueError("Bad parameter, not a dict!")
 
         if data:
-
             if clear:
                 self.clear()
 

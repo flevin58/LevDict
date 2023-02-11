@@ -1,18 +1,21 @@
 # levdict
 
-This module consists of a main class LevDict, which allows to treat dictionaries as attributes,
+This module allows to handle dictionaries keys as attributes.
+It has four classes:
+
+- ***LevDict***: The base class, it acts as a dictionary but with the added feature of treating
+consists of a main class LevDict, which allows to treat dictionaries as attributes.
+- ***LevDictJson***: Derived from LevDict, reads and writes ***json*** files
+- ***LevDictToml***: Derived from LevDict, reads and writes ***toml*** files (depends on toml)
+- ***LevDictYaml***: Derived from LevDict, reads and writes ***yaml*** files (depends on pyyaml)
+
 and three derived classes that allow using respectively toml, json and yaml for configuration purposes.
-
-## Project Status
-
-The module is currently in alfa release.
-It is published in PyPi test repository.
 
 ## Installation
 
-For the moment use this command:
+The module is currently in production.
 
-    python -m pip install -i https://test.pypi.org/project/ levdict
+    python -m pip install levdict
 
 ## Usage
 

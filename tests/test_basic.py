@@ -2,14 +2,14 @@ import unittest
 from src.levdict import LevDict
 
 DICT_1 = {
-    "frutta": {
-        "pere": 10,
-        "mele": 20,
-        "banane": 30,
+    "fruit": {
+        "oranges": 10,
+        "apples": 20,
+        "bananas": 30,
     },
-    "verdura": {
-        "carote": 10,
-        "melanzane": 15,
+    "vegetables": {
+        "carrots": 10,
+        "aubergines": 15,
     },
 }
 
@@ -26,58 +26,49 @@ class TestBasic(unittest.TestCase):
 
         dict2 = LevDict(a=1, b=2)
         self.assertEqual(dict2.a, 1)
+        self.assertEqual(dict2["a"], 1)
+        self.assertEqual(dict2, {"a": 1, "b": 2})
 
     def test_normal_dict(self):
-        result = self.dict1["verdura"]
-        expected = {
-            "carote": 10,
-            "melanzane": 15,
-        }
+        result = self.dict1["vegetables"]
+        expected = {"carrots": 10, "aubergines": 15}
         self.assertEqual(result, expected)
 
-        result = self.dict1["frutta"]["mele"]
+        result = self.dict1["fruit"]["apples"]
         expected = 20
         self.assertEqual(result, expected)
 
     def test_dotted_dict(self):
-        result = self.dict1.verdura
-        expected = {
-            "carote": 10,
-            "melanzane": 15,
-        }
+        result = self.dict1.vegetables
+        expected = {"carrots": 10, "aubergines": 15}
         self.assertEqual(result, expected)
 
-        result = self.dict1.frutta.mele
+        result = self.dict1.fruit.apples
         expected = 20
         self.assertEqual(result, expected)
 
     def test_mixed_dict(self):
-        result = self.dict1.frutta["mele"]
+        result = self.dict1.fruit["apples"]
         expected = 20
         self.assertEqual(result, expected)
 
-        result = self.dict1["frutta"].mele
+        result = self.dict1["fruit"].apples
         expected = 20
         self.assertEqual(result, expected)
 
     def test_assignment(self):
         new_dict: LevDict = LevDict(self.dict1)
-        new_dict.frutta.pere = 1
-        new_dict.frutta["mele"] = 0
+        new_dict.fruit.oranges = 1
+        new_dict.fruit["apples"] = 0
 
-        result = new_dict.frutta
-        expected = {
-            "pere": 1,
-            "mele": 0,
-            "banane": 30,
-        }
+        result = new_dict.fruit
+        expected = {"oranges": 1, "apples": 0, "bananas": 30}
         self.assertEqual(result, expected)
 
     def test_simple_update(self):
-        self.dict1.frutta.update(pere=88)
-        result = self.dict1.frutta
-        expected = {
-            "pere": 88,
-            "mele": 0,
-            "banane": 30,
-        }
+        self.dict1.fruit.update(oranges=88)
+        self.dict1.fruit.update({"pears": 5})
+
+        result = self.dict1.fruit
+        expected = {"oranges": 88, "apples": 20, "bananas": 30, "pears": 5}
+        self.assertEqual(result, expected)
