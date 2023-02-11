@@ -62,7 +62,7 @@ def cmd_install(
 ) -> None:
     module = _get_project_name().lower()
     if choice.value == "test":
-        flag = "--repository testpypi "
+        flag = "-i https://test.pypi.org/project/ "
     elif choice.value == "prod":
         flag = ""
     else:
