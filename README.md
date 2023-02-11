@@ -17,15 +17,24 @@ The module is currently in production.
 
     python -m pip install levdict
 
-## Usage
+## LevDict basic usage
 
-Please read the examples for an introduction.
+    d = LevDict(name="John", surname="Doe")
+    surname = d.surname
+    surname = d["surname"]
+    d.name = "Peter"
+    d.update(name="Albert")
+    d.surname="Hall"
+
+More in the examples folder.
 
 ## Project Tree Structure
 
-    .
+        .
     ├── LICENSE
     ├── Makefile
+    ├── Pipfile
+    ├── Pipfile.lock
     ├── README.md
     ├── examples
     │   ├── example1.py
@@ -33,8 +42,12 @@ Please read the examples for an introduction.
     │   ├── example2.py
     │   ├── example3.py
     │   ├── example3.toml
-    │   └── example3_mod.toml
+    │   ├── example3_mod.toml
+    │   ├── example4.json
+    │   └── example4.py
     ├── pyproject.toml
+    ├── scripts
+    │   └── levmake.py
     ├── src
     │   └── levdict
     │       ├── __init__.py
@@ -46,7 +59,11 @@ Please read the examples for an introduction.
         ├── __init__.py
         ├── examples
         │   ├── example.toml
+        │   ├── example1.json
         │   ├── example1.toml
-        │   └── nando.toml
+        │   ├── example1.yaml
+        │   └── example1_mod.toml
         ├── test_basic.py
         └── test_levdict.py
+
+    7 directories, 28 files
